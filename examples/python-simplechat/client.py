@@ -9,8 +9,8 @@ def chat(messages):
     r = requests.post(
         "http://0.0.0.0:11434/api/chat",
         json={"model": model, "messages": messages, "stream": True},
-	stream=True
-    )
+	stream=True, 
+    timeout=60)
     r.raise_for_status()
     output = ""
 
